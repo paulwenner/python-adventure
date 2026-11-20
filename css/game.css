@@ -1,0 +1,5 @@
+.board { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
+.board-cell { min-height: 48px; display: grid; place-items: center; border: 1px solid #d8dde7; background: white; }
+#commands { box-sizing: border-box; width: 100%; max-width: 100%; }
+.board-cell { min-height: 56px; text-align: center; }
+#commands { box-sizing: border-box; width: 100%; max-width: 100%; padding: 8px; font: inherit; }

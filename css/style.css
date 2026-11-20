@@ -1,0 +1,62 @@
+/* Gemeinsame Gestaltung */
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  margin: 0;
+  color: #172033;
+  background: #fafafa;
+  font-family: monospace;
+}
+
+.container { width: 90%; max-width: 1000px; margin: 0 auto; }
+.header, .footer { padding: 16px 0; border-bottom: 1px solid #d8dde7; }
+.footer { border-top: 1px solid #d8dde7; border-bottom: 0; }
+.header-content, .nav { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.nav { margin-left: auto; }
+a { color: #2855e8; }
+main { padding: 24px 0; }
+.card { padding: 16px; border: 1px solid #d8dde7; margin-bottom: 16px; }
+.button { display: inline-block; padding: 8px 12px; background: #2855e8; color: white; text-decoration: none; }
+.code-example { padding: 12px; background: white; border: 1px solid #d8dde7; overflow-x: auto; }
+
+/* Vier unterschiedliche Seiten-Layouts */
+.start-page main { display: grid; grid-template-areas: "hero" "cards"; gap: 16px; }
+.start-page .hero { grid-area: hero; }
+.start-page .card-grid { grid-area: cards; }
+.learn-page main { display: grid; grid-template-areas: "lessons" "overview"; gap: 16px; }
+.learn-page .lessons { grid-area: lessons; }
+.learn-page .overview { grid-area: overview; }
+.quiz-page main { display: grid; grid-template-areas: "intro" "questions" "result"; gap: 16px; }
+.quiz-page .quiz-intro { grid-area: intro; }
+.quiz-page .quiz-questions { grid-area: questions; }
+.quiz-page .quiz-result { grid-area: result; }
+.game-page main { display: grid; grid-template-areas: "instructions" "board" "editor"; gap: 16px; }
+.game-page .game-instructions { grid-area: instructions; }
+.game-page .game-board { grid-area: board; }
+.game-page .game-editor { grid-area: editor; }
+
+@media (min-width: 700px) {
+  .start-page main { grid-template-columns: 1fr 1fr; grid-template-areas: "hero hero" "cards cards"; }
+  .start-page .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .learn-page main { grid-template-columns: 2fr 1fr; grid-template-areas: "lessons overview"; }
+  .quiz-page main { grid-template-columns: 1fr 2fr; grid-template-areas: "intro questions" "result questions"; }
+  .game-page main { grid-template-columns: 1fr 1fr; grid-template-areas: "instructions board" "editor board"; }
+}
+
+/* Kleine Abstände halten Navigation und Inhalte gut lesbar. */
+.container { width: min(90%, 1000px); }
+.nav a { padding: 4px 0; }
+.card { background: #fff; border-radius: 6px; }
+.card h2:first-child { margin-top: 0; }
+.code-example { color: #172033; }
+.quiz-page main { grid-template-areas: "intro" "questions" "result"; align-content: start; }
+.quiz-page .quiz-questions { display: grid; gap: 16px; }
+.quiz-page .quiz-result { align-self: start; }
+.quiz-page fieldset label { display: inline-flex; align-items: center; gap: 8px; padding: 5px 0; }
+.quiz-page fieldset br { display: none; }
+.button { border: 0; border-radius: 4px; font: inherit; cursor: pointer; }
+.button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid #172033; outline-offset: 3px; }
+@media (min-width: 768px) {
+  .quiz-page main { grid-template-columns: 1fr 2fr; grid-template-areas: "intro questions" "result questions"; }
+}
